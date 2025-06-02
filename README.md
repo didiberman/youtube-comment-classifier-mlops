@@ -16,6 +16,21 @@ This project showcases a full **MLOps workflow** by fine-tuning and deploying a 
 
 ---
 
+## 🧰 MLOps Skills Demonstrated
+
+This project is designed to highlight practical, production-ready MLOps capabilities:
+
+- 📦 Model Packaging: Fine-tuned Hugging Face model wrapped for inference
+- 🧪 Testing & Validation: Unit tests for key components using `pytest`
+- 🔁 CI/CD: Automated checks via GitHub Actions for linting, testing, and Docker build
+- 🐳 Containerization: Fully Dockerized setup for consistent environment and scalability
+- 🚀 Deployment-Ready: Compatible with FastAPI, K3s, AWS EC2, and GCP Cloud Run
+- 🗃️ Data Management: Labeled data preprocessing and storage workflows
+- 📈 Observability: Extensible with MLflow or Weights & Biases for experiment tracking
+
+These demonstrate the full lifecycle from data and model training to serving and automation.
+
+
 ## 📁 Project Structure
 
 ```
