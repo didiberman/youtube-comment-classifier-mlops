@@ -139,4 +139,4 @@ Expert in marketing automation, full-stack AI tooling, and MLOps pipelines.
 
 ## 📌 Why This Matters
 
-This project demonstrates real-world MLOps workflows—from problem definition and data labeling to transformer fine-tuning, containerization, and deployment—exactly what hiring teams look for in practical ML engineering.
+This project demonstrates real-world MLOps workflows—from problem definition and data labeling to transformer fine-tuning, containerization, and deployment.
