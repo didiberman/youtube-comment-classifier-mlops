@@ -1,17 +1,18 @@
-# 🎯 YouTube Comment Classifier (MLOps Showcase)
+# 🎯 YouTube Comment Classifier – MLOps Portfolio Project
 
-This project demonstrates a full MLOps workflow by deploying a pre-trained Transformer model that classifies YouTube comments into emotional struggle categories (e.g., abandonment, shame, fear). It includes data preprocessing, containerized model serving via FastAPI, CI/CD pipelines, and cloud deployment readiness.
+This project showcases a full **MLOps workflow** by fine-tuning and deploying a DistilBERT transformer model to classify YouTube comments into emotional struggle categories (e.g., shame, abandonment, dissociation). It demonstrates model development, scalable deployment, automation, and cloud readiness—ideal for real-world ML pipelines.
 
 ---
 
-## 🧠 Project Highlights
+## 🧠 Core Features
 
-- ✅ **Pretrained DistilBERT model** fine-tuned on labeled YouTube comments  
-- 🔁 **Automated inference pipeline** using FastAPI  
-- 🐳 **Dockerized** for easy deployment and scalability  
-- ⚙️ **CI/CD pipeline** using GitHub Actions  
-- ☁️ **Cloud deployment-ready** (AWS/GCP/Kubernetes-ready)  
-- 📈 Optionally extensible with MLflow or Weights & Biases for experiment tracking  
+- ✅ **Transformer model** (DistilBERT) fine-tuned on real YouTube comments  
+- 🔁 **FastAPI-based inference API** with real-time classification  
+- 🐳 **Dockerized end-to-end pipeline**: training → serving → deployment  
+- ⚙️ **CI/CD with GitHub Actions**: linting, tests, build & deploy checks  
+- ☁️ **Cloud-ready**: deployable on AWS/GCP/Kubernetes (via Docker & K3s)  
+- 📊 **Extensible with MLflow or Weights & Biases** (future roadmap)  
+- 📂 Clear modular structure for scalable iteration and maintenance  
 
 ---
 
@@ -19,55 +20,60 @@ This project demonstrates a full MLOps workflow by deploying a pre-trained Trans
 
 ```
 .
-├── data/                 # Raw & preprocessed comments
-├── model/                # Pretrained model + tokenizer
-├── src/                  # Inference & data pipeline
-├── serving/              # FastAPI app & Dockerfile
-├── scripts/              # Simulated training, data download
-├── notebooks/            # EDA and prototyping
-├── deploy/               # Cloud deployment instructions
-├── .github/workflows/    # CI/CD pipelines
-├── Dockerfile            # Main project Dockerfile
+├── data/                 # Raw + preprocessed YouTube comment data
+├── model/                # Fine-tuned transformer weights & tokenizer
+├── src/                  # Inference and preprocessing pipeline
+├── serving/              # FastAPI server + API schema
+├── scripts/              # Simulated training scripts
+├── deploy/               # Cloud deployment (Docker/K8s/Cloud Run)
+├── .github/workflows/    # CI/CD pipelines (lint, test, deploy)
+├── Dockerfile            # Containerized setup
 ├── README.md             # This file
 ```
 
 ---
 
-## 🚀 How to Run Locally
+## 🚀 Run Locally (Developer Mode)
 
 1. **Clone the repo**
-
 ```bash
 git clone https://github.com/yourname/youtube-comment-classifier-mlops.git
 cd youtube-comment-classifier-mlops
 ```
 
 2. **Install dependencies**
-
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **Run the FastAPI server**
-
+3. **Start the FastAPI server**
 ```bash
 uvicorn serving.app:app --reload
 ```
 
-Then visit `http://localhost:8000/docs` to try the live API!
+→ Visit: [http://localhost:8000/docs](http://localhost:8000/docs) for Swagger UI
 
 ---
 
-## 🧪 Example Input
+## 🔁 CI/CD Overview
 
+- ✅ **Linting** via `flake8`  
+- ✅ **Unit Testing** with `pytest`  
+- ✅ **GitHub Actions** for automated build checks + future deployment hooks  
+- ✅ Future: Add staging/production split, DVC tracking, and rollout monitoring
+
+---
+
+## 🧪 Inference Example
+
+**Input**
 ```json
 {
   "text": "I keep sabotaging my relationships because I don't feel worthy of love."
 }
 ```
 
-**Example Output**
-
+**Output**
 ```json
 {
   "category": "Shame & Self-Worth",
@@ -77,49 +83,45 @@ Then visit `http://localhost:8000/docs` to try the live API!
 
 ---
 
-## 🔁 CI/CD
-
-This repo includes:
-
-- ✅ Linting with flake8  
-- ✅ Unit testing with pytest  
-- ✅ GitHub Actions workflow (`.github/workflows/ci.yml`) to automate quality checks  
-
----
-
 ## ☁️ Deployment Options
 
-- **Docker**:
-  ```bash
-  docker build -t comment-classifier .
-  docker run -p 8000:8000 comment-classifier
-  ```
+- **Docker**
+```bash
+docker build -t comment-classifier .
+docker run -p 8000:8000 comment-classifier
+```
 
-- **Cloud**: See `/deploy/README.md` for guides to deploy on:
-  - AWS EC2 with Docker
-  - GCP Cloud Run
-  - Kubernetes with K3s
-
----
-
-## 🧠 Model Details
-
-- **Model**: DistilBERT (Hugging Face) fine-tuned on labeled YouTube comments  
-- **Categories**: 6–8 emotionally meaningful categories (e.g., abandonment, overwhelm, numbness)  
-- **Data**: Labeled by a psychological prompt assistant trained on trauma theory (Thomas Hübl, Gabor Maté, etc.)
+- **Cloud Platforms**: See `/deploy/README.md`  
+  - AWS EC2 with Docker  
+  - GCP Cloud Run  
+  - Kubernetes (via K3s or EKS)
 
 ---
 
 ## 📈 Future Enhancements
 
-- Add full training pipeline with DVC or MLflow  
-- Enable multiple model variants (LLMs, small models, distilled)  
-- Add frontend for real-time classification  
+- ⏺ Full training pipeline with **MLflow**, **DVC**, or **Weights & Biases**
+- ⏺ Live frontend for in-browser emotional analysis
+- ⏺ Support for multi-model routing and model versioning
+
+---
+
+## 🧠 Model Details
+
+- **Base**: `distilbert-base-uncased` from HuggingFace Transformers  
+- **Fine-Tuned On**: Labeled YouTube comments using trauma-informed prompt engineering  
+- **Target Classes**: Emotional struggles (e.g., Childhood Trauma, Anxiety, Depression, Numbness)
 
 ---
 
 ## 👤 Author
 
 **Didi Berman** – AI & Automation Engineer  
-Focused on MLOps, AI-powered marketing tools, and scalable automation pipelines.  
+Expert in marketing automation, full-stack AI tooling, and MLOps pipelines.  
 [📎 GitHub](https://github.com/didiberman) | [🌐 Website](https://didiberman.com)
+
+---
+
+## 📌 Why This Matters
+
+This project demonstrates real-world MLOps workflows—from problem definition and data labeling to transformer fine-tuning, containerization, and deployment—exactly what hiring teams look for in practical ML engineering.
